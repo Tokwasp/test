@@ -2,6 +2,8 @@ services:
   app:
     build: .
     container_name: hello-aws
+    env_file:
+      - .env          # SSH로 넣어둔 AWS 자격증명/큐 설정을 컨테이너에 주입
     ports:
       - "80:8080"   # EC2에서 80포트로 받아 컨테이너 8080으로 전달
     restart: unless-stopped
